@@ -12,29 +12,37 @@ function writePassword() {
 }
 
 function generatePassword(){
-  getParam();
+  used();
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 //an array with all uppercase letters 
- const uppercase =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+ let uppercase =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
 // an array with all lowere case  letters
-const lowercase =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+let lowercase =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
 // an array with numbers 
-const number = [0,1,2,3,4,5,6,7,8,9];
+let number = [0,1,2,3,4,5,6,7,8,9];
 
 //an array with special characters 
-const specialChar =["!","@","#","$","%","^","&","*"];
+let specialChar =["!","@","#","$","%","^","&","*"];
 
 // a new array with the created pasword 
 let passwordGen =[];
 
 // a variable that will determin the length of the password (prompt)
 // has to be linked to the button create pasword 
+// prompt to ask if we want uppercase 
+//prompt to ask if we want lowercase
+//prompt to ask if we want numbers 
+// prompt to ask if we want special characters 
+// prompt dor at least 8 characters and no more than 128 characters
+// alert if the length chosen is to long 
+//alert if the length chosen is to short 
+// alert if requierments are not met
 
 let length = function(){
   length = prompt("How long would you like your pasword to be ?" );
@@ -78,7 +86,7 @@ let lower = function (){
     alert("you need to answer yes or no ")
     lower = prompt("Would you like lowercase letters in your password? yes or no");
   }
-  else if (low == "yes"){
+  else if (lower == "yes"){
     return true;
   }
   else{
@@ -107,30 +115,42 @@ function getParam(){
   lower();
   num();
 }
-// console.log(length());
-// console.log(special());
-// console.log(cap());
-// console.log(lower());
-// console.log(num());
 
 // random number generator to chose one of the characters from each of the arrays 
 
+function randomNumber(arr){
+  return Math.floor(Math.random () * arr.length)
+}
 
 
-// prompt to ask if we want uppercase 
-//prompt to ask if we want lowercase
-//prompt to ask if we want numbers 
-// prompt to ask if we want special characters 
-// prompt dor at least 8 characters and no more than 128 characters
+// function to let the generator know what arrays to use 
 
 
-// alert if the length chosen is to long 
+let newArr = [];
 
-//alert if the length chosen is to short 
+function used (){
+  getParam();
+  
+  if(special === "yes"){
+   let arr = newArr.concat(specialChar);
+   newArr =arr;
+  }
+  if(cap == "yes"){
+   let arr1 = newArr.concat(uppercase);
+   newArr = arr1;
+  }
+  if(lower == "yes"){
+    let arr2 = newArr.concat(lowercase);
+    newArr = arr2;
+  }
+  if(num == "yes"){
+    let arr3 = newArr.concat(number);
+    newArr = arr3;
+  }
+}
 
-// alert if requierments are not met
-
-// function to build the password 
+//randomly selects an array
+// function randonArr(arr1)
 
 // for loop to itterate over the object (if used instead of array )
 
