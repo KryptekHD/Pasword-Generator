@@ -12,7 +12,9 @@ function writePassword() {
 }
 
 function generatePassword(){
-  used();
+  used()
+  generator(newArr);
+  return passwordGen.join('');
 }
 
 // Add event listener to generate button
@@ -147,10 +149,17 @@ function used (){
     let arr3 = newArr.concat(number);
     newArr = arr3;
   }
+  return newArr;
 }
 
-//randomly selects an array
-// function randonArr(arr1)
+function generator(arr){
+  for( let i =0; i<length; i++){
+    passwordGen.push(arr[randomNumber(newArr)])
+  }
+  return passwordGen;
+}
+
+// generator(newArr)
 
 // for loop to itterate over the object (if used instead of array )
 
