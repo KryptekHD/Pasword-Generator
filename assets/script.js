@@ -2,7 +2,9 @@
 //the button has this class on it 
 var generateBtn = document.querySelector("#generate");
 
+
 // Write password to the #password input
+// pasword to be displayed in the specific spot on the html document
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -15,6 +17,8 @@ function generatePassword(){
   used()
   generator(newArr);
   return passwordGen.join('');
+  
+ 
 }
 
 // Add event listener to generate button
@@ -46,7 +50,8 @@ let passwordGen =[];
 //alert if the length chosen is to short 
 // alert if requierments are not met
 
-let length = function(){
+let length = 0;
+function len(){
   length = prompt("How long would you like your pasword to be ?" );
     if(length < 8 || !length || length > 128){
       alert("This password length is to short of a length the minimum is 8 characters and the maximum is 128 chracters Try Again")
@@ -54,68 +59,72 @@ let length = function(){
     }
 }
 
-let special=function (){
+let special;
+function spec(){
   special= prompt("Would you like special characters in your password? yes or no")
   if(!special){
     alert("you need to answer yes or no ")
     special = prompt("Would you like special characters in your password? yes or no");
   }
-  else if (special == "yes"){
-    return true;
+  else if (special === "yes"){
+    return special= true;
   }
   else{
-    return false;
+    return special = false;
   }
 }
 
-let cap = function (){
+let cap;
+function capt (){
   cap = prompt("Would you like capital letters in your password? yes or no")
   if(!cap){
     alert("you need to answer yes or no ")
     cap= prompt("Would you like capital letters in your password? yes or no");
   }
-  else if (cap == "yes"){
-    return true;
+  else if (cap === "yes"){
+    return cap = true;
   }
   else{
-    return false;
+    return cap = false;
   }
 };
 
-let lower = function (){
+let lower;
+function lowe(){
   lower = prompt("Would you like lowercase letters in your password? yes or no")
   if(!lower){
     alert("you need to answer yes or no ")
     lower = prompt("Would you like lowercase letters in your password? yes or no");
   }
-  else if (lower == "yes"){
-    return true;
+  else if (lower === "yes"){
+    return lower = true;
   }
   else{
-    return false;
+    return lower = false;
   }
 };
 
-let num =function (){
+let num;
+function nums(){
   num = prompt("Would you like numbers in your password? yes or no")
   if(!num){
     alert("you need to answer yes or no ")
     num = prompt("Would you like numbers in your password? yes or no");
   }
-  else if (num == "yes"){
-    return true;
+  else if (num === "yes"){
+    return num = true;
   }
   else{
-    return false;
+    return num = false;
   }
 };
 
 function getParam(){
-  length();
-  special();
-  cap();
-  lower();
-  num();
+  len();
+  spec();
+  capt();
+  lowe();
+  nums();
 }
 
 // random number generator to chose one of the characters from each of the arrays 
@@ -133,19 +142,19 @@ let newArr = [];
 function used (){
   getParam();
   
-  if(special === "yes"){
+  if(special === true){
    let arr = newArr.concat(specialChar);
    newArr =arr;
   }
-  if(cap == "yes"){
+  if(cap === true){
    let arr1 = newArr.concat(uppercase);
    newArr = arr1;
   }
-  if(lower == "yes"){
+  if(lower === true){
     let arr2 = newArr.concat(lowercase);
     newArr = arr2;
   }
-  if(num == "yes"){
+  if(num === true){
     let arr3 = newArr.concat(number);
     newArr = arr3;
   }
@@ -158,11 +167,4 @@ function generator(arr){
   }
   return passwordGen;
 }
-
-// generator(newArr)
-
-// for loop to itterate over the object (if used instead of array )
-
-// pasword to be displayed in the specific spot on the html document
-
 // pasword is able to be selected and copied 

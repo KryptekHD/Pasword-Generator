@@ -52,6 +52,7 @@ header {
 
 .card-body {
   min-height: 100px;
+  
 }
 
 .card-footer {
@@ -117,6 +118,7 @@ button[disabled] {
   resize: none;
   overflow: hidden;
 }
+
 
 @media (max-width: 690px) {
   .btn {
