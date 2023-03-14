@@ -13,6 +13,8 @@ function writePassword() {
  
 }
 
+ 
+
 function generatePassword(){
   used()
   generator(newArr);
@@ -38,6 +40,8 @@ let specialChar =["!","@","#","$","%","^","&","*"];
 
 // a new array with the created pasword 
 let passwordGen =[];
+
+
 
 // a variable that will determin the length of the password (prompt)
 // has to be linked to the button create pasword 
